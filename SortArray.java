@@ -1,9 +1,8 @@
 import java.util.*;
 
+public class SortArray{
 
-public class SortArray {
-
-    public static void Sort() {
+    public static void main(String args[]) {
 
         int swap;
         int size;
@@ -19,11 +18,22 @@ public class SortArray {
         for(int i = 0; i < size; i++) {
             inputArray[i] = scan.nextInt();
         }
+        scan.close();
 
         for(int i = 0; i < size; i++){
-            
+            for(int j = i+1; j < size; j++){
+                if(inputArray[i] > inputArray[j]){
+                    swap = inputArray[i];
+                    inputArray[i] = inputArray[j];
+                    inputArray[j] = swap;
+                }
+            }           
         }
-        
-    }
+
+        System.out.println("Sorted Array:");
+        for(int i = 0; i < size; i++){
+            System.out.print(inputArray[i] + " ");
+        }
     
+    }
 }
