@@ -1,39 +1,40 @@
-import java.util.*;
+import java.util.Arrays;
+import java.util.Scanner;
 
-public class SortArray{
+public class SortArray {
 
-    public static void main(String args[]) {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int n, i = 0;
 
-        int swap;
-        int size;
-        
-        Scanner scan = new Scanner(System.in);
+		Scanner s = new Scanner(System.in);
 
-        System.out.println("Enter Number of Elements:");
-        size = scan.nextInt();
+		System.out.print("Enter no. of elements you want in array:");
 
-        int inputArray [] = new int[size];
+		n = s.nextInt();
 
-        System.out.println("Enter " +  size + " Elements");
-        for(int i = 0; i < size; i++) {
-            inputArray[i] = scan.nextInt();
-        }
-        scan.close();
+		String[] a = new String[n];
 
-        for(int i = 0; i < size; i++){
-            for(int j = i+1; j < size; j++){
-                if(inputArray[i] > inputArray[j]){
-                    swap = inputArray[i];
-                    inputArray[i] = inputArray[j];
-                    inputArray[j] = swap;
-                }
-            }           
-        }
+		System.out.println("Enter all the elements:");
+		for (i = 0; i < n; i++)
 
-        System.out.println("Sorted Array:");
-        for(int i = 0; i < size; i++){
-            System.out.print(inputArray[i] + " ");
-        }
-    
-    }
+		{
+
+			a[i] = s.next();
+
+		}
+
+		int size = a.length;
+		for (int i1 = 0; i1 < size - 1; i1++) {
+			for (int j = i1 + 1; j < a.length; j++) {
+				if (a[i1].compareTo(a[j]) > 0) {
+					String temp = a[i1];
+					a[i1] = a[j];
+					a[j] = temp;
+
+				}
+			}
+		}
+		System.out.println(Arrays.toString(a));
+	}
 }
